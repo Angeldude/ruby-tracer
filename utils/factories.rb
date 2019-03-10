@@ -1,4 +1,6 @@
-require_relative '../src/tuple'
+%w[tuple color].each do |item|
+  require_relative "../src/#{item}"
+end
 
 module Factories
 
@@ -25,5 +27,9 @@ module Factories
   def normalize vect
     x,y,z,w = vect.x / magnitude(vect), vect.y / magnitude(vect), vect.z / magnitude(vect), vect.w / magnitude(vect)
     tuple(x,y,z,w)
+  end
+  
+  def color(x, y, z)
+    Color.new(x,y,z)
   end
 end
